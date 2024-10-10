@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>PMMA 출하 LOT 지정</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link href='https://fonts.googleapis.com/css?family=RobotoDraft' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="LMCC style.css.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Side Navigation -->
+  <nav class="w3-sidebar w3-bar-block w3-collapse w3-white w3-animate-left w3-card" style="z-index:3;width:320px;"
+    id="mySidebar">
+    <h1 style="text-align: center;"><strong><span style="color: #e70e0e;">LOTTE </span>
+        <span style="color: #4343f5;">MCC</span></strong></h1>
+    <a href="javascript:void(0)" onclick="w3_close()" title="Close Sidemenu"
+      class="w3-bar-item w3-button w3-hide-large w3-large">Close <i class="fa fa-remove"></i></a>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-dark-grey w3-button w3-hover-black w3-left-align"
+      onclick="document.getElementById('id01').style.display='block'">New Message
+      <i class="w3-padding fa fa-pencil"></i></a>
+    <a id="myBtn" onclick="myFunc('Demo1')" href="javascript:void(0)" class="w3-bar-item w3-button">
+      <i class="fa fa-inbox w3-margin-right"></i> PMMA 출하관리(5)<i class="fa fa-caret-down w3-margin-left"></i></a>
+    <div id="Demo1" class="w3-hide w3-animate-left">
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey"
+        onclick="openMail('Calendar');w3_close();" id="firstTab">
+        <div class="w3-container">
+          <h4 style="color: #3c3c3e;">Calendar</h4>
+          <h6>PMMA 출하일정</h6>
+        </div>
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey"
+          onclick="openMail('VH 001L');w3_close();" id="firstTab">
+          <div class="w3-container">
+            <h4 style="color: #3c3c3e;">VH 001L</h4>
+            <h6>PMMA 물류관리</h6>
+          </div>
+        </a>
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey"
+          onclick="openMail('VH6 001');w3_close();">
+          <div class="w3-container">
+            <h4 style="color: #3c3c3e;">VH6 001</h4>
+            <h6>PMMA 물류관리</h6>
+          </div>
+        </a>
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey"
+          onclick="openMail('기타 선별 출하관리 LOT');w3_close();">
+          <div class="w3-container">
+            <h4 style="color: #3c3c3e;">기타 선별 출하관리 LOT</h4>
+            <h6>광학용/일반용/등급변경/감모제품</h6>
+          </div>
+        </a>
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey"
+          onclick="openMail('고객사 관리');w3_close();">
+          <div class="w3-container">
+            <h4 style="color: #3c3c3e;">고객사 관리</h4>
+            <h6>고객출하 정보관리</h6>
+          </div>
+        </a>
+    </div>
+    <a href="#" class="w3-bar-item w3-button"><i class="fa fa-paper-plane w3-margin-right"></i>Sent</a>
+    <a href="#" class="w3-bar-item w3-button"><i class="fa fa-hourglass-end w3-margin-right"></i>Drafts</a>
+    <a href="#" class="w3-bar-item w3-button"><i class="fa fa-trash w3-margin-right"></i>Trash</a>
+  </nav> // inbox 닫침
+
+  <!-- Modal that pops up when you click on "New Message" -->
+  <div id="id01" class="w3-modal" style="z-index:4">
+    <div class="w3-modal-content w3-animate-zoom">
+      <div class="w3-container w3-padding w3-red">
+        <span onclick="document.getElementById('id01').style.display='none'"
+          class="w3-button w3-red w3-right w3-xxlarge"><i class="fa fa-remove"></i></span>
+        <h2>Send Mail</h2>
+      </div>
+      <div class="w3-panel">
+        <label>To</label>
+        <input class="w3-input w3-border w3-margin-bottom" type="text">
+        <label>From</label>
+        <input class="w3-input w3-border w3-margin-bottom" type="text">
+        <label>Subject</label>
+        <input class="w3-input w3-border w3-margin-bottom" type="text">
+        <input class="w3-input w3-border w3-margin-bottom" style="height:150px" placeholder="What's on your mind?">
+        <div class="w3-section">
+          <a class="w3-button w3-red" onclick="document.getElementById('id01').style.display='none'">Cancel  <i
+              class="fa fa-remove"></i></a>
+          <a class="w3-button w3-light-grey w3-right"
+            onclick="document.getElementById('id01').style.display='none'">Send  <i class="fa fa-paper-plane"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Overlay effect when opening the side navigation on small screens -->
+  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+    title="Close Sidemenu" id="myOverlay"></div>
+
+  <!-- Page content -->
+  <div class="w3-main" style="margin-left:320px;">
+    <i class="fa fa-bars w3-button w3-white w3-hide-large w3-xlarge w3-margin-left w3-margin-top"
+      onclick="w3_open()"></i>
+    <a href="javascript:void(0)" class="w3-hide-large w3-red w3-button w3-right w3-margin-top w3-margin-right"
+      onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-pencil"></i></a>
+
+
+    <div id="Calendar" class="w3-container person">
+      <br>
+      <h4><i class="fa fa-clock-o"></i> VH 001 From LOTTE MCC QC, Jan 01, 2024.</h4>
+      <hr>
+      <h1>출하 스케줄</h1>
+      <table>
+   
+      </table>
+     
+    </div>
+
+
+
+    <div id="VH 001L" class="w3-container person">
+      <br>
+      <h4><i class="fa fa-clock-o"></i> VH 001 From LOTTE MCC QC, Jan 01, 2024.</h4>
+      <hr>
+      <table id="VH table" style="table-layout:fixed; width: 100%;">
+        <thead>
+          <tr>
+            <th style="width: 6%">PLANT</th>
+            <th style="width: 5%">LOT No.</th>
+            <th style="width: 5%">생산량<br>[MT]</th>
+            <th style="width: 10%">휘점 분석<br>[160매 기준]</th>
+            <th style="width: 10%">흑점 분석<br>[1.1kg]</th>
+            <th style="width: 7%">재고량<br>[MT]</th>
+            <th style="width: 3%">YI</th>
+            <th style="width: 5%">제품 판정<br>[QC]</th>
+            <th style="width: 23%">로트 지정<br>(3개월 이전 제품은 SAP재고 확인후 재지정)</th>
+            <th style="width: 10%">재고 위치</th>
+            <th style="width: 10%">Note</th>
+            <th style="width: 6%"><button class="success" onclick="add_VHtr('table_VHbody')">추가</button></th>
+          </tr>
+        </thead>
+        <tbody id="table_VHbody">
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><button onclick="VHmodify_and_save(this)">수정</button>
+              <button onclick="remove(this)">삭제</button>
+            </td>
+          </tr>
+          <tr>
+            <td style="table-layout:fixed;width: 100%">
+              <select style="width : 100%" name="PMMA 1/2">
+                <option value="1">PMMA 1</option>
+                <option value="2">PMMA 2</option>
+              </select>
+            </td>
+            <td><input type="text" style="width: 100%" placeholder="LOT No"></td>
+            <td><input type="number" style="width: 100%" id="Production" placeholder="MT" value="0.0"></td>
+            <td><input type="text" style="width: 100%" placeholder="금속 0,0,0 / 금속 이외 0,0,0"></td>
+            <td><input type="text" style="width: 100%" placeholder="소/중/대/특 0,0,0,0"></td>
+            <td>
+              <p id="stock" type="stock" style="color: blue; font-weight: bold;"></p>
+            </td>
+            <td><input type="text" style="width: 100%" placeholder="3"></td>
+            <td>
+              <select style="width: 100%">
+                <option value="1">광학용(S)</option>
+                <option value="2">광학용(N)</option>
+                <option value="3">광학용(A)</option>
+                <option value="4">일반용(N)</option>
+                <option value="5">일반용(A)</option>
+                <option value="6">출하 보류</option>
+              </select>
+            <td>
+              <input type="text" placeholder="Customer" style="width:30%;">&nbsp<input type="number" id="sale1"
+                placeholder="MT" style="width:15%;" value="0.0">
+              <input type="text" placeholder="Customer" style="width:30%;">&nbsp<input type="number" id="sale2"
+                placeholder="MT" style="width:15%;" value="0.0">
+              <input type="text" placeholder="Customer" style="width:30%;">&nbsp<input type="number" id="sale3"
+                placeholder="MT" style="width:15%;" value="0.0">
+              <input type="text" placeholder="Customer" style="width:30%;">&nbsp<input type="number" id="sale4"
+                placeholder="MT" style="width:15%;" value="0.0">
+              <input type="text" placeholder="Customer" style="width:30%;">&nbsp<input type="number" id="sale5"
+                placeholder="MT" style="width:15%;" value="0.0">
+              <input type="text" placeholder="Customer" style="width:30%;">&nbsp<input type="number" id="sale6"
+                placeholder="MT" style="width:15%;" value="0.0">
+            </td>
+            <td><input type="text" style="width: 100%" placeholder="PMMA(MT)">
+              <input type="text" style="width: 100%" placeholder="광양(MT)">
+              <input type="text" style="width: 100%" placeholder="익산(MT)">
+            <td><input type="text" style="width: 100%" placeholder="ETC"></td>
+            <td><button onclick="VHmodify_and_save(this)">수정</button>
+              <button onclick="remove(this)">삭제</button>
+            </td>
+          </tr>
+          <tr>
+            <td>PMMA1</td>
+            <td>0310323</td>
+            <td>148.0 MT</td>
+            <td>0,0,0/0,0,0</td>
+            <td>0,0,0 / 0,0,0</td>
+            <td style="color: blue; font-weight: bold;"> 0.0 MT</td>
+            <Td>1.4</Td>
+            <td>광학용(S)</td>
+            <td>에스폴리텍 24.0 / 플라벡스 24.0 <br>아이컴포넌트 24.0 / 에스캠 24.0 <br> 폭스콘 24.0 / HTB 48.0</td>
+            <td>48.0MT<br>48.0MT<br>24.0MT</td>
+            <td>공장 우선출하</td>
+            <td><button onclick="VHmodify_and_save(this)">수정</button>
+              <button onclick="remove(this)">삭제</button>
+            </td>
+          </tr>
+          <tr>
+            <td>PMMA1</td>
+            <td>0310323</td>
+            <td>148.0 MT</td>
+            <td>0,0,0/0,0,0</td>
+            <td>0,0,0 / 0,0,0</td>
+            <td style="color: blue; font-weight: bold;"> 0.0 MT</td>
+            <Td>1.4</Td>
+            <td>광학용(S)</td>
+            <td>에스폴리텍 24.0 / 플라벡스 24.0 <br>아이컴포넌트 24.0 / 에스캠 24.0 <br> 폭스콘 24.0 / HTB 48.0</td>
+            <td>48.0MT<br>48.0MT<br>24.0MT</td>
+            <td>공장 우선출하</td>
+            <td><button onclick="VHmodify_and_save(this)">수정</button>
+              <button onclick="remove(this)">삭제</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>[제품 출하관리]</p>
+      <p>▶ 제품 등급별 합격품은 출하 요청자 책임자, 관리책임자, 영업담당자의 최종 확인 후 출하 진행 되어야 한다.</p>
+      <p>▶ 제품 출하 시 지정한 라벨, MSDS, 포장형태 방법을 확인 한다.</p>
+      <p>▶ 제품 출하 시 국외, 국내 출하처를 명확히 구분한다.</p>
+    </div>
+
+    <div id="VH6 001" class="w3-container person">
+      <br>
+      <h4><i class="fa fa-clock-o"></i> VH6 001 From LOTTE MCC QC, Jan 01, 2024.</h4>
+      <hr>
+      <table id="V6 table" style="table-layout:fixed; width: 100%;">
+        <thead>
+          <tr>
+            <th style="width: 6%">PLANT</th>
+            <th style="width: 5%">LOT No.</th>
+            <th style="width: 5%">생산량<br>[MT]</th>
+            <th style="width: 10%">휘점 분석<br>[160매 기준]</th>
+            <th style="width: 10%">흑점 분석<br>[1.1kg]</th>
+            <th style="width: 7%">재고량<br>[MT]</th>
+            <th style="width: 3%">YI</th>
+            <th style="width: 5%">제품 판정<br>[QC]</th>
+            <th style="width: 23%">로트 지정<br>(3개월 이전 제품은 SAP재고 확인후 재지정)</th>
+            <th style="width: 10%">재고 위치</th>
+            <th style="width: 10%">Note</th>
+            <th style="width: 6%"><button class="success" onclick="add_V6tr('table_V6body')">추가</button></th>
+          </tr>
+        </thead>
+        <tbody id="table_V6body">
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><button onclick="VHmodify_and_save(this)">수정</button>
+              <button onclick="remove(this)">삭제</button>
+            </td>
+          </tr>
+          <tr>
+            <td style="table-layout:fixed;width: 100%">
+              <select style="width : 100%" name="PMMA 1/2">
+                <option value="1">PMMA 1</option>
+                <option value="2">PMMA 2</option>
+              </select>
+            </td>
+            <td><input type=" text" style="width: 100%" placeholder="LOT No"></td>
+            <td><input type="number" style="width: 100%" id="Production" placeholder="MT" value="0.0"></td>
+            <td><input type="text" style="width: 100%" placeholder="금속 0,0,0 / 금속 이외 0,0,0"></td>
+            <td><input type="text" style="width: 100%" placeholder="소/중/대/특 0,0,0,0"></td>
+            <td>
+              <p id="stock" type="stock" style="color: blue; font-weight: bold;">
+            </td>
+            <td><input type="text" style="width: 100%" placeholder="3"></td>
+            <td>
+              <select style="width: 100%">
+                <option value="1">광학용(S)</option>
+                <option value="2">광학용(N)</option>
+                <option value="3">광학용(A)</option>
+                <option value="4">일반용(N)</option>
+                <option value="5">일반용(A)</option>
+                <option value="6">출하 보류</option>
+              </select>
+            <td>
+              <input type="text" placeholder="Customer" style="width:30%;">&nbsp<input type="number" id="sale1"
+                placeholder="MT" style="width:15%;" value="0.0">
+              <input type="text" placeholder="Customer" style="width:30%;">&nbsp<input type="number" id="sale2"
+                placeholder="MT" style="width:15%;" value="0.0">
+              <input type="text" placeholder="Customer" style="width:30%;">&nbsp<input type="number" id="sale3"
+                placeholder="MT" style="width:15%;" value="0.0">
+              <input type="text" placeholder="Customer" style="width:30%;">&nbsp<input type="number" id="sale4"
+                placeholder="MT" style="width:15%;" value="0.0">
+              <input type="text" placeholder="Customer" style="width:30%;">&nbsp<input type="number" id="sale5"
+                placeholder="MT" style="width:15%;" value="0.0">
+              <input type="text" placeholder="Customer" style="width:30%;">&nbsp<input type="number" id="sale6"
+                placeholder="MT" style="width:15%;" value="0.0">
+            </td>
+            <td><input type="text" style="width: 100%" placeholder="PMMA(MT)">
+              <input type="text" style="width: 100%" placeholder="광양(MT)">
+              <input type="text" style="width: 100%" placeholder="익산(MT)">
+            <td><input type="text" style="width: 100%" placeholder="ETC"></td>
+            <td><button onclick="VHmodify_and_save(this)">수정</button>
+              <button onclick="remove(this)">삭제</button>
+            </td>
+          </tr>
+          <tr>
+            <td>PMMA1</td>
+            <td>0310323</td>
+            <td>148.0 MT</td>
+            <td>0,0,0/0,0,0</td>
+            <td>0,0,0 / 0,0,0</td>
+            <td style="color: blue; font-weight: bold;"> 0.0 MT</td>
+            <Td>1.4</Td>
+            <td>광학용(S)</td>
+            <td>에스폴리텍 24.0 / 플라벡스 24.0 <br>아이컴포넌트 24.0 / 에스캠 24.0 <br> 폭스콘 24.0 / HTB 48.0</td>
+            <td>48.0MT<br>48.0MT<br>24.0MT</td>
+            <td>공장 우선출하</td>
+            <td><button onclick="VHmodify_and_save(this)">수정</button>
+              <button onclick="remove(this)">삭제</button>
+            </td>
+          </tr>
+          <tr>
+            <td>PMMA1</td>
+            <td>0310323</td>
+            <td>148.0 MT</td>
+            <td>0,0,0/0,0,0</td>
+            <td>0,0,0 / 0,0,0</td>
+            <td style="color: blue; font-weight: bold;"> 0.0 MT</td>
+            <Td>1.4</Td>
+            <td>광학용(S)</td>
+            <td>에스폴리텍 24.0 / 플라벡스 24.0 <br>아이컴포넌트 24.0 / 에스캠 24.0 <br> 폭스콘 24.0 / HTB 48.0</td>
+            <td>48.0MT<br>48.0MT<br>24.0MT</td>
+            <td>공장 우선출하</td>
+            <td><button onclick="VHmodify_and_save(this)">수정</button>
+              <button onclick="remove(this)">삭제</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>[제품 출하관리]</p>
+      <p>▶ 제품 등급별 합격품은 출하 요청자 책임자, 관리책임자, 영업담당자의 최종 확인 후 출하 진행 되어야 한다.</p>
+      <p>▶ 제품 출하 시 지정한 라벨, MSDS, 포장형태 방법을 확인 한다.</p>
+      <p>▶ 제품 출하 시 국외, 국내 출하처를 명확히 구분한다.</p>
+    </div>
+
+
+    <div id="기타 선별 출하관리 LOT" class="w3-container person">
+      <br>
+      <h4><i class="fa fa-clock-o"></i> From LOTTE MCC QC, Jan 01, 2024.</h4>
+      <hr>
+      <table id="C table" style="table-layout:fixed; width: 100%;">
+        <thead>
+          <tr>
+            <th style="width: 6%">PLANT</th>
+            <th style="width: 5%">LOT No.</th>
+            <th style="width: 5%">생산량<br>[MT]</th>
+            <th style="width: 10%">휘점 분석<br>[160매 기준]</th>
+            <th style="width: 10%">흑점 분석<br>[1.1kg]</th>
+            <th style="width: 7%">재고량<br>[MT]</th>
+            <th style="width: 3%">YI</th>
+            <th style="width: 5%">제품 판정<br>[QC]</th>
+            <th style="width: 23%">제품 관리 사항</th>
+            <th style="width: 10%">재고 위치</th>
+            <th style="width: 10%">Note</th>
+            <th style="width: 6%"><button class="success" onclick="add_Ctr('table_Cbody')">추가</button></th>
+          </tr>
+        </thead>
+        <tbody id="table_Cbody">
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><button onclick="VHmodify_and_save(this)">수정</button>
+              <button onclick="remove(this)">삭제</button>
+            </td>
+          </tr>
+          <tr>
+            <td style="table-layout:fixed;width: 100%">
+              <select style="width : 100%" name="PMMA 1/2">
+                <option value="1">PMMA 1</option>
+                <option value="2">PMMA 2</option>
+              </select>
+            </td>
+            <td><input type="text" style="width: 100%" placeholder="LOT No"></td>
+            <td><input type="number" style="width: 100%" id="Production" placeholder="MT" value="0.0"></td>
+            <td><input type="text" style="width: 100%" placeholder="금속 0,0,0 / 금속 이외 0,0,0"></td>
+            <td><input type="text" style="width: 100%" placeholder="소/중/대/특 0,0,0,0"></td>
+            <td style="color: blue; font-weight: bold;"><input type="text" style="width: 80%" placeholder="0,0">MT</td>
+            <td><input type="text" style="width: 100%" placeholder="3"></td>
+            <td>
+              <select style="width: 100%">
+                <option value="1">광학용(S)</option>
+                <option value="2">광학용(N)</option>
+                <option value="3">광학용(A)</option>
+                <option value="4">일반용(N)</option>
+                <option value="5">일반용(A)</option>
+                <option value="6">출하 보류</option>
+              </select>
+            <td><input type="text" style="width: 100%" placeholder="ETC"></td>
+            <td><input type="text" style="width: 100%" placeholder="Location"></td>
+            <td><input type="text" style="width: 100%" placeholder="ETC"></td>
+            <td><button onclick="VHmodify_and_save(this)">수정</button>
+              <button onclick="remove(this)">삭제</button>
+            </td>
+          </tr>
+          <tr>
+            <td>PMMA1</td>
+            <td>03103623</td>
+            <td>148.0 MT</td>
+            <td>0,0,0/0,0,0</td>
+            <td>0,0,0 / 0,0,0</td>
+            <td style="color: blue; font-weight: bold;"> 0.0 MT</td>
+            <Td>1.4</Td>
+            <td>광학용(S)</td>
+            <td>에스폴리텍 24.0 / 플라벡스 24.0 <br>아이컴포넌트 24.0 / 에스캠 24.0 <br> 폭스콘 24.0 / HTB 48.0</td>
+            <td>재고창고</td>
+            <td>-</td>
+            <td><button onclick="VHmodify_and_save(this)">수정</button>
+              <button onclick="remove(this)">삭제</button>
+            </td>
+          </tr>
+          <tr>
+            <td>PMMA2</td>
+            <td>03102G23</td>
+            <td>148.0 MT</td>
+            <td>-</td>
+            <td>-</td>
+            <td style="color: blue; font-weight: bold;"> 24.0 MT</td>
+            <Td>1.4</Td>
+            <td>일반용(A)</td>
+            <td>재포장으로 인한 등급 다운 제품(광학용-일반용)</td>
+            <td>광양창고</td>
+            <td>-</td>
+            <td><button onclick="VHmodify_and_save(this)">수정</button>
+              <button onclick="remove(this)">삭제</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>[제품 출하관리]</p>
+      <p>▶ 제품 등급별 합격품은 출하 요청자 책임자, 관리책임자, 영업담당자의 최종 확인 후 출하 진행 되어야 한다.</p>
+      <p>▶ 제품 출하 시 지정한 라벨, MSDS, 포장형태 방법을 확인 한다.</p>
+      <p>▶ 제품 출하 시 국외, 국내 출하처를 명확히 구분한다.</p>
+    </div>
+    <div id="고객사 관리" class="w3-container person ">
+      <br>
+      <h4><i class="fa fa-clock-o "></i> From LOTTE MCC QC, Jan 01, 2024.</h4>
+      <hr>
+      <h2>고객사별 주요 관리 항목</h2>
+      <table id="CC table" style="table-layout:fixed; width: 100%;; ">
+        <thead>
+          <tr>
+            <th style="width: 10% ">고객사</th>
+            <th style="width: 10% ">제품사항</th>
+            <th style="width: 10% ">GRADE</th>
+            <th style="width: 60% ">관리항목/고객 요청사항</th>
+            <th style="width: 10% ">Note</th>
+            <th style="width: 6% ">
+              <button onclick="add_CCtr('table_CCbody') ">추가
+              </button>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="table_CCbody">
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><button onclick="modify_and_save(this)">수정</button>
+              <button onclick="remove(this)">삭제</button>
+            </td>
+          </tr>
+          <tr>
+            <td><input type="text" style="width: 100%" placeholder="Company Name"></td>
+            <td><input type="text" style="width: 100%" placeholder="Class"></td>
+            <td><input type="text" style="width: 100%" placeholder="Grade"></td>
+            <td><input type="text" style="width: 100%" placeholder="Detail"></td>
+            <td><input type="text" style="width: 100%" placeholder="Note"></td>
+            <td><button onclick="modify_and_save(this)">수정</button>
+              <button onclick="remove(this)">삭제</button>
+            </td>
+          </tr>
+          <tr>
+            <td>플라벡스</td>
+            <td>광학용(S)</td>
+            <td>VH 001L</td>
+            <td>출하시 시즌별 출하 / 연속 생산 LOT 출하지정 요청
+              <br> PMMA2공장 제품으로 만 출하요청, 재고 부족시 PMMA1 공장 가능하며 사전 통보 요청
+            </td>
+            <td>-</td>
+            <td>
+              <button onclick="modify_and_save(this)">수정</button>
+              <button onclick="remove(this)">삭제</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Foxconn</td>
+            <td>광학용(S)</td>
+            <td>VH 001L</td>
+            <td>출하 등급중 가장 광학용(S)급 출하관리
+              <br>PMMA1공장 제품으로 만 출하요청, 재고 부족시 PMMA2 공장 가능하며 사전 협의 요청
+              <br>PMMA1공장 별도의 세부 분석결과 공유
+            </td>
+            <td>-</td>
+            <td><button onclick="modify_and_save(this)">수정</button>
+              <button onclick="remove(this)">삭제</button>
+            </td>
+          </tr>
+          <tr>
+            <td>에스폴리텍</td>
+            <td>광학용(S)</td>
+            <td>VH 001L</td>
+            <td>출하 등급중 가장 광학용(S)급 출하관리
+              <br> PMMA1공장 제품으로 만 출하요청, 재고 부족시 PMMA2 공장 가능하며 사전 협의 요청
+              <br> PMMA1공장 별도의 세부 분석결과 공유
+            </td>
+            <td>-</td>
+            <td><button onclick="modify_and_save(this)">수정</button>
+              <button onclick="remove(this)">삭제</button>
+            </td>
+          </tr>
+          <tr>
+            <td>HTB</td>
+            <td>광학용(S)</td>
+            <td>VH 001L</td>
+            <td>출하 등급중 가장 광학용(S)급 출하관리
+              <br> PMMA1공장 제품으로 만 출하요청, 재고 부족시 PMMA2 공장 가능하며 사전 협의 요청
+              <br> PMMA1공장 별도의 세부 분석결과 공유
+            </td>
+            <td>-</td>
+            <td><button onclick="modify_and_save(this)">수정</button>
+              <button onclick="remove(this)">삭제</button>
+            </td>
+          </tr>
+          <tr>
+            <td>비전 플라닉스</td>
+            <td>일반용(N)</td>
+            <td>VH 001</td>
+            <td>출하 등급 중 일반용 출하관리, PMMA1공장 별도의 세부 분석결과 공유</td>
+            <td>-</td>
+            <td><button onclick="modify_and_save(this)">수정</button>
+              <button onclick="remove(this)">삭제</button>
+            </td>
+          </tr>
+          <tr>
+            <td>에스캠</td>
+            <td>일반용(N)</td>
+            <td>VH 001</td>
+            <td>출하 등급 중 일반용 출하관리, PMMA1공장 별도의 세부 분석결과 공유, 인조대리석용으로 출하 소량의 y/c 혼입은 상관없음</td>
+            <td>-</td>
+            <td><button onclick="modify_and_save(this)">수정</button>
+              <button onclick="remove(this)">삭제</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="20240115 app.js"></script>
+</body>
+
+</html>
